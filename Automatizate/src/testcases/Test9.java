@@ -9,10 +9,13 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public class Test9{
 	private WebDriver driver;
+	private ChromeOptions options = new ChromeOptions();
+
 	private String baseUrl;
 	private WebElement element;
 	private String text;
@@ -23,7 +26,8 @@ public class Test9{
 	@Before
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "C:\\DriverServers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		baseUrl = "http://uitestingplayground.com/shadowdom";
 		

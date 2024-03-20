@@ -107,8 +107,13 @@ public class FormPageXpath {
 	 * Accept cookies
 	 */
 	public void clickCookies() {
-		inpCookies = utils.waitForElementToBeClickable(driver, cookies);
-		inpCookies.click();
+		try {
+			inpCookies = utils.waitForElement(driver, cookies, 3);
+			inpCookies.click();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 
 	/**

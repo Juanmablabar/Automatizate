@@ -5,17 +5,21 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import pageObjects.FormPageXpath;
 
 public class Test11 {
 	private WebDriver driver;
+	private ChromeOptions options = new ChromeOptions();
 	private String baseUrl;
 	private FormPageXpath page;
 
 	@Before
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "C:\\DriverServers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		baseUrl = "https://demoqa.com/automation-practice-form";
 		page = new FormPageXpath(driver);

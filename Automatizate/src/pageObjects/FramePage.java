@@ -36,8 +36,13 @@ public class FramePage {
 	}
 
 	public void clickCookies() {
-		cookies = utils.waitForElementToBeVisible(driver, byCookies);
-		cookies.click();
+		try {
+			cookies = utils.waitForElement(driver, byCookies, 3);
+			cookies.click();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 
 	}
 

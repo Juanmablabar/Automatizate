@@ -112,8 +112,13 @@ public class FormPageId {
 	 * Accept cookies
 	 */
 	public void clickCookies() {
-		inpCookies = utils.waitForElementToBeClickable(driver, cookies);
+		try {
+		inpCookies = utils.waitForElement(driver, cookies, 3);
 		inpCookies.click();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 
 	/**
